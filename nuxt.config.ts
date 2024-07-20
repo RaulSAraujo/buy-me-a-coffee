@@ -6,7 +6,34 @@ export default defineNuxtConfig({
     typeCheck: true
   },
 
-  modules: ["@nuxt/eslint"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxtjs/i18n",
+    "vuetify-nuxt-module",
+    '@nuxt/image'
+  ],
+
+  i18n: {
+    defaultLocale: 'br',
+    locales: [
+      {
+        code: 'br',
+        file: './locales/pt-BR.ts'
+      },
+      {
+        code: 'en',
+        file: './locales/en-US.ts'
+      }
+    ],
+  },
+
+  vuetify:{
+    vuetifyOptions: {
+      icons: {
+        defaultSet: 'mdi'
+      },
+    }
+  },
 
   sourcemap: {
     server: true,
