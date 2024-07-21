@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     '@nuxt/image'
   ],
 
+  css: [
+    '~/assets/global.css'
+  ],
+
   i18n: {
     defaultLocale: 'br',
     locales: [
@@ -27,7 +31,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  vuetify:{
+  vuetify: {
     vuetifyOptions: {
       icons: {
         defaultSet: 'mdi'
