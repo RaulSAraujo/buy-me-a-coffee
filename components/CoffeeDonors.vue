@@ -30,16 +30,16 @@ const messages = ref([
 
 <template>
   <v-sheet
-    height="260"
+    height="180"
     rounded="xl"
     variant="outlined"
     class="pa-2 border-sm overflow-auto"
   >
-    <p class="text-center text-h6 font-weight-bold">APOIADORES</p>
+    <p class="text-center text-h6 font-weight-bold">{{ $t("coffeDonorsTitle") }}</p>
 
     <v-divider />
 
-    <v-virtual-scroll :items="messages" height="200" class="mt-1">
+    <v-virtual-scroll :items="messages" height="120" class="mt-1">
       <template #default="{ item }">
         <v-list-item :title="item.name" :subtitle="`${item.message}`">
           <template #prepend>

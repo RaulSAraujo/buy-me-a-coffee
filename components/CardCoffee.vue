@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   title: string;
-  price: string;
+  price: number;
   description: string;
   src: string;
 }>();
@@ -28,22 +28,30 @@ const _srcset = computed(() => {
       height="200"
       cover
       class="align-end text-white"
-      gradient="to top, rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)"
+      gradient="to top, rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)"
     >
-      <v-card-title class="text-overline">{{ title }}</v-card-title>
+      <v-card-title class="text-overline">{{ $t(title) }}</v-card-title>
+
+      <v-card-subtitle>{{
+        $n(price, {
+          style: "currency",
+          currency: $t("currency"),
+        })
+      }}</v-card-subtitle>
     </v-img>
 
     <v-card-text class="text-caption">
-      {{ description }}
+      {{ $t(description) }}
     </v-card-text>
 
     <template #actions>
       <v-btn
         color="orange"
-        :text="`DONATION ${price}`"
+        :text="`${$t('buttonDonateText')} ${$t(title)}`"
         block
         position="absolute"
         location="bottom center"
+        class="text-overline"
       />
     </template>
   </v-card>
